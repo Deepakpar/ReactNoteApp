@@ -1,9 +1,27 @@
-import React from 'react'
+import { createBrowserRouter, RouterProvider } from "react-router"
+
+const routes = [{
+    path: '/',
+    element: <h1>Hello World</h1>
+  }]
+
+const router = createBrowserRouter(routes,
+  {
+  future: {
+    v7_relativeSplatPath: true,
+  }},
+)
 
 function App() {
-  return (
-    <div>App</div>
-  )
+  return <RouterProvider router={router}
+          future={{
+          v7_startTransition: true,
+          v7_fetcherPersist: true,
+          v7_normalizeFormMethod: true,
+          v7_partialHydration: true,
+          v7_skipActionErrorRevalidation: true,
+          }}
+        />
 }
 
 export default App
